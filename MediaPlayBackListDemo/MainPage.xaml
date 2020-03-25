@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="MediaPlayBackListDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaPlayBackListDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="5" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="AntiqueWhite" />
+            <Setter Property="BorderBrush" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0.5" EndPoint="0,0.5">
+                        <GradientStop Color="BlueViolet" Offset="1.0" />
+                        <GradientStop Color="Black" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <StackPanel >
+            <muxc:MenuBar Name="menubar">
+            <muxc:MenuBarItem Title="File" Name="menuBarItem">
+                    <MenuFlyoutItem Text="Open File(s)" Click="PickMultiFile">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+
+                </muxc:MenuBarItem>
+
+        </muxc:MenuBar>
+        </StackPanel >
+        <StackPanel>
+        <MediaPlayerElement  Margin="40,20,40,20" Width="500" Height="300" VerticalAlignment="Bottom" x:Name="mediaplayerElement" AreTransportControlsEnabled="False"></MediaPlayerElement>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="skipBackBtn" >
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED3C;"/>
+            </Button>
+            <Button x:Name="rewindBtn" >
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9E;"/>
+            </Button>
+            <Button x:Name="previousBtn">
+                <SymbolIcon x:Name="previousButtonSymbol" Symbol="Previous"/>
+            </Button>
+            <Button x:Name="playpauseBtn">
+                <SymbolIcon x:Name="playButtonSymbol" Symbol="Play"/>
+            </Button>
+            <Button x:Name="nextBtn">
+                <SymbolIcon x:Name="nextButtonSymbol" Symbol="Next"/>
+            </Button>
+            <Button x:Name="fastForwardBtn">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9D;"/>
+            </Button>
+            <Button x:Name="skipForwardBtn">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED3D;"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="40,20,0,0" HorizontalAlignment="Center">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView x:Name="playlistView" IsItemClickEnabled="True" ItemClick="PlaylistView_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="32" Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="64" Height="32">
+                                    <Image Source="{Binding ArtUri}" Stretch="UniformToFill"/>
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
+                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0"  VerticalAlignment="Top" TextWrapping="Wrap">
+                                Current state: <Run x:Name="txtCurrentState"/>
+            </TextBlock>
+        </StackPanel>
+    </StackPanel>
+   
+</Page>
