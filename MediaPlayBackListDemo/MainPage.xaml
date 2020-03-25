@@ -38,30 +38,42 @@
         </muxc:MenuBar>
         </StackPanel >
         <StackPanel>
-        <MediaPlayerElement  Margin="40,20,40,20" Width="500" Height="300" VerticalAlignment="Bottom" x:Name="mediaplayerElement" AreTransportControlsEnabled="False"></MediaPlayerElement>
+        <MediaPlayerElement  Margin="40,20,40,20" Width="500" Height="300" VerticalAlignment="Bottom" x:Name="mediaplayerElement" AreTransportControlsEnabled="True"></MediaPlayerElement>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="skipBackBtn" >
+            <Button x:Name="skipBackBtn" Click="skipBackBtn_Click" >
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED3C;"/>
             </Button>
-            <Button x:Name="rewindBtn" >
+            <Button x:Name="rewindBtn" Click="rewindBtn_Click" >
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9E;"/>
             </Button>
-            <Button x:Name="previousBtn">
+            <Button x:Name="previousBtn" Click="previousBtn_Click" IsEnabled="False">
                 <SymbolIcon x:Name="previousButtonSymbol" Symbol="Previous"/>
             </Button>
-            <Button x:Name="playpauseBtn">
+            <Button x:Name="playpauseBtn" Click="playpauseBtn_Click">
                 <SymbolIcon x:Name="playButtonSymbol" Symbol="Play"/>
             </Button>
-            <Button x:Name="nextBtn">
+            <Button x:Name="nextBtn" Click="nextBtn_Click" IsEnabled="False">
                 <SymbolIcon x:Name="nextButtonSymbol" Symbol="Next"/>
             </Button>
-            <Button x:Name="fastForwardBtn">
+            <Button x:Name="fastForwardBtn" Click="fastForwardBtn_Click">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9D;"/>
             </Button>
-            <Button x:Name="skipForwardBtn">
+            <Button x:Name="skipForwardBtn" Click="skipForwardBtn_Click">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED3D;"/>
+            </Button>
+            <Button x:Name="shuffleBtn" Click="shuffleBtn_Click">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B1;"/>
+            </Button> 
+            <Button x:Name="autoRepeatBtn" Click="AutoRepeatBtn_Click">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8EE;"/>
+            </Button>
+            <Button x:Name="aspectRatioBtn" Click="aspectRatioBtn_Click">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE799;"/>
+            </Button>
+            <Button x:Name="fullScreenBtn" Click="fullScreenBtn_Click" >
+                <SymbolIcon  x:Name="fullScreenSymbol" Symbol="FullScreen"/>
             </Button>
         </StackPanel>
         <StackPanel Margin="40,20,0,0" HorizontalAlignment="Center">
