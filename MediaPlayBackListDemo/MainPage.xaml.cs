@@ -52,6 +52,7 @@ namespace MediaPlayBackListDemo
             // Subscribe to list UI changes
             playlistView.ItemClick += PlaylistView_ItemClick;
 
+
             //Attach the player to the MediaPlayerElement:
             mediaplayerElement.SetMediaPlayer(mediaplayer);
 
